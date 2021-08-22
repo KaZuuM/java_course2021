@@ -10,11 +10,10 @@ public class Point {
         this.y = y;
     }
 
-    public double distance(Point this, Point second) {
+    public static double distance(Point a, Point b) {
 
-        return Math.sqrt(Math.abs((second.x - this.x)) + Math.abs((second.y - this.y)));
+        return Math.sqrt(Math.abs((b.x - a.x)) + Math.abs((b.y - a.y)));
 
     }
-    // Идея подсказала что необходимо убрать static в сигнатуре метода, чтобы он так заработал. Если есть ещё варианты
-    // Могу подумать как решить
+    // Выполнил решение со статичным методом
 }
