@@ -4,9 +4,9 @@ public class FirstHomeWork {
 
     public static void main(String[] args) {
 
-        Point first = new Point(2, 1);
-        Point second = new Point(3, 5);
-        System.out.println("Расстояние между 2-мя точками со значениями, который ввёл пользователь = " + distance(first,second));
+        Point first = new Point(1, 1);
+        Point second = new Point(1, 2);
+        System.out.println("Расстояние между 2-мя точками со значениями, которые ввёл пользователь = " + distance(first,second));
     }
 
 
