@@ -10,9 +10,9 @@ public class Point {
         this.y = y;
     }
 
-    public static double distance(Point a, Point b) {
+    public  double distance(Point this, Point b) {
 
-        return Math.sqrt(Math.abs((b.x - a.x)) + Math.abs((b.y - a.y)));
+        return Math.sqrt(Math.abs((b.x - this.x)) + Math.abs((b.y - this.y)));
 
     }
     // Выполнил решение со статичным методом

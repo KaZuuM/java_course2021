@@ -6,7 +6,7 @@ public class FirstHomeWork {
 
         Point first = new Point(1, 1);
         Point second = new Point(1, 2);
-        System.out.println("Расстояние между 2-мя точками со значениями, которые ввёл пользователь = " + distance(first,second));
+        System.out.println("Расстояние между 2-мя точками со значениями, которые ввёл пользователь = " + first.distance(second));
     }
 
 
