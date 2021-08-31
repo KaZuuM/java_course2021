@@ -15,5 +15,4 @@ public class Point {
         return Math.sqrt(Math.abs((b.x - this.x)) + Math.abs((b.y - this.y)));
 
     }
-    // Выполнил решение со статичным методом
 }
