@@ -12,7 +12,7 @@ public class ApplicationManager {
 
     WebDriver wd;
 
-    public SessionHelper sessionHelper;
+    private SessionHelper sessionHelper;
     private NavigationHelper navigationHelper;
     private GroupHelper groupHelper;
     private ContactHelper contanctHelper;
