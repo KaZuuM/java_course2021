@@ -13,65 +13,81 @@ public class ContactCreationTest {
   public void setUp() throws Exception {
     wd = new FirefoxDriver();
     wd.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+    wd.get("http://localhost/addressbook/edit.php");
+    login("admin", "secret");
+  }
+  private void login(String username, String password) {
+    wd.findElement(By.name("user")).click();
+    wd.findElement(By.name("user")).clear();
+    wd.findElement(By.name("user")).sendKeys(username);
+    wd.findElement(By.name("pass")).clear();
+    wd.findElement(By.name("pass")).sendKeys(password);
+    wd.findElement(By.id("LoginForm")).click();
+    wd.findElement(By.xpath("//input[@value='Login']")).click();
   }
 
   @Test
   public void testContactCreation() throws Exception {
-    wd.get("http://localhost/addressbook/edit.php");
-    wd.findElement(By.name("user")).click();
-    wd.findElement(By.name("user")).clear();
-    wd.findElement(By.name("user")).sendKeys("admin");
-    wd.findElement(By.name("pass")).clear();
-    wd.findElement(By.name("pass")).sendKeys("secret");
-    wd.findElement(By.xpath("//input[@value='Login']")).click();
+    fillContactForm(new ContanctData("Artyom", "Viktorovich", "Kazmin", "KaZuuM", "123", "Egar", "Voronezh", "+79204370360", "+79204370360", "sportakus93@gmail.com", "19", "June", "1993", "test_qq", "123", "123", "12435"));
+    confirmContactCreation();
+    returnToHomePage(By.linkText("home page"));
+  }
+
+  private void returnToHomePage(By home_page) {
+    wd.findElement(home_page).click();
+  }
+
+  private void confirmContactCreation() {
+    wd.findElement(By.xpath("//div[@id='content']/form/input[21]")).click();
+  }
+
+  private void fillContactForm(ContanctData contanctData) {
     wd.findElement(By.name("firstname")).click();
     wd.findElement(By.name("firstname")).clear();
-    wd.findElement(By.name("firstname")).sendKeys("Artyom");
+    wd.findElement(By.name("firstname")).sendKeys(contanctData.getFirstName());
     wd.findElement(By.name("middlename")).clear();
-    wd.findElement(By.name("middlename")).sendKeys("Viktorovich");
+    wd.findElement(By.name("middlename")).sendKeys(contanctData.getMiddleName());
     wd.findElement(By.name("lastname")).clear();
-    wd.findElement(By.name("lastname")).sendKeys("Kazmin");
+    wd.findElement(By.name("lastname")).sendKeys(contanctData.getLastName());
     wd.findElement(By.name("nickname")).clear();
-    wd.findElement(By.name("nickname")).sendKeys("KaZuuM");
+    wd.findElement(By.name("nickname")).sendKeys(contanctData.getNickName());
     wd.findElement(By.name("title")).clear();
-    wd.findElement(By.name("title")).sendKeys("123");
+    wd.findElement(By.name("title")).sendKeys(contanctData.getTitle());
     wd.findElement(By.name("company")).clear();
-    wd.findElement(By.name("company")).sendKeys("Egar");
+    wd.findElement(By.name("company")).sendKeys(contanctData.getCompany());
     wd.findElement(By.name("address")).clear();
-    wd.findElement(By.name("address")).sendKeys("Voronezh");
+    wd.findElement(By.name("address")).sendKeys(contanctData.getAddress());
     wd.findElement(By.name("mobile")).clear();
-    wd.findElement(By.name("mobile")).sendKeys("+79204370360");
+    wd.findElement(By.name("mobile")).sendKeys(contanctData.getMobile());
     wd.findElement(By.name("work")).clear();
-    wd.findElement(By.name("work")).sendKeys("+79204370360");
+    wd.findElement(By.name("work")).sendKeys(contanctData.getWorkMobile());
     wd.findElement(By.name("email")).click();
     wd.findElement(By.name("email")).clear();
-    wd.findElement(By.name("email")).sendKeys("sportakus93@gmail.com");
+    wd.findElement(By.name("email")).sendKeys(contanctData.getEmail());
     wd.findElement(By.name("bday")).click();
-    new Select(wd.findElement(By.name("bday"))).selectByVisibleText("19");
+    new Select(wd.findElement(By.name("bday"))).selectByVisibleText(contanctData.getbDay());
     wd.findElement(By.name("bmonth")).click();
-    new Select(wd.findElement(By.name("bmonth"))).selectByVisibleText("June");
+    new Select(wd.findElement(By.name("bmonth"))).selectByVisibleText(contanctData.getbMonths());
     wd.findElement(By.name("byear")).click();
     wd.findElement(By.name("byear")).clear();
-    wd.findElement(By.name("byear")).sendKeys("1993");
+    wd.findElement(By.name("byear")).sendKeys(contanctData.getbYear());
     wd.findElement(By.name("aday")).click();
     wd.findElement(By.name("theform")).click();
     wd.findElement(By.name("new_group")).click();
-    new Select(wd.findElement(By.name("new_group"))).selectByVisibleText("test_qq");
+    new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contanctData.getGroup());
     wd.findElement(By.name("address2")).click();
     wd.findElement(By.name("address2")).click();
     wd.findElement(By.name("address2")).clear();
-    wd.findElement(By.name("address2")).sendKeys("123");
+    wd.findElement(By.name("address2")).sendKeys(contanctData.getAddress2());
     wd.findElement(By.name("phone2")).click();
     wd.findElement(By.name("phone2")).clear();
-    wd.findElement(By.name("phone2")).sendKeys("123");
+    wd.findElement(By.name("phone2")).sendKeys(contanctData.getPhone2());
     wd.findElement(By.name("notes")).click();
     wd.findElement(By.name("notes")).clear();
-    wd.findElement(By.name("notes")).sendKeys("12435");
-    wd.findElement(By.xpath("//div[@id='content']/form/input[21]")).click();
-    wd.findElement(By.linkText("home page")).click();
+    wd.findElement(By.name("notes")).sendKeys(contanctData.getNotes());
   }
 
-  @AfterClass(alwaysRun = true)
+  @AfterMethod(alwaysRun = true)
   public void tearDown() throws Exception {
     wd.quit();
   }
