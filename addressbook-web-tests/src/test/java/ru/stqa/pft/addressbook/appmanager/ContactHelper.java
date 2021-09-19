@@ -29,9 +29,9 @@ public class ContactHelper extends HelperBase{
         type(By.name("mobile"),contanctData.getMobile());
         type(By.name("work"),contanctData.getWorkMobile());
         type(By.name("email"),contanctData.getEmail());
-        type(By.name("bday"),contanctData.getbDay());
+        click(By.name("bday"));
         findElement(By.name("bday")).selectByVisibleText(contanctData.getbDay());
-        type(By.name("bmonth"), contanctData.getbMonths());
+        click(By.name("bmonth"));
         findElement(By.name("bmonth")).selectByVisibleText(contanctData.getbMonths());
         type(By.name("byear"),contanctData.getbYear());
         click(By.name("new_group"));

@@ -23,28 +23,12 @@ public class AnotherAmt {
 
   @Test
   public void testAnotherAmt() throws Exception {
-    driver.get("http://localhost/addressbook/");
-    driver.findElement(By.name("user")).click();
-    driver.findElement(By.name("user")).clear();
-    driver.findElement(By.name("user")).sendKeys("admin");
-    driver.findElement(By.name("pass")).clear();
-    driver.findElement(By.name("pass")).sendKeys("secret");
-    driver.findElement(By.xpath("//input[@value='Login']")).click();
+    driver.get("http://localhost/addressbook/edit.php");
+    driver.findElement(By.name("bday")).click();
 
-    driver.findElement(By.name("firstname")).click();
-    driver.findElement(By.name("firstname")).clear();
-    driver.findElement(By.name("firstname")).sendKeys("sads");
-    driver.findElement(By.name("middlename")).click();
-    driver.findElement(By.name("middlename")).clear();
-    driver.findElement(By.name("middlename")).sendKeys("asd");
-    driver.findElement(By.name("address")).click();
-    driver.findElement(By.name("address")).clear();
-    driver.findElement(By.name("address")).sendKeys("asd");
-    driver.findElement(By.name("email2")).click();
-    driver.findElement(By.name("email2")).clear();
-    driver.findElement(By.name("email2")).sendKeys("ad");
-    driver.findElement(By.xpath("//div[@id='content']/form/input[21]")).click();
-    driver.findElement(By.linkText("home page")).click();
+    driver.findElement(By.name("bmonth")).click();
+    new Select(driver.findElement(By.name("bmonth"))).selectByVisibleText("June");
+    driver.findElement(By.name("theform")).click();
   }
 
   @AfterClass(alwaysRun = true)
