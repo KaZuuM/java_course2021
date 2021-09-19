@@ -9,6 +9,7 @@ import java.util.concurrent.TimeUnit;
 
 public class ApplicationManager {
 
+
     WebDriver wd;
 
     public SessionHelper sessionHelper;
@@ -21,10 +22,10 @@ public class ApplicationManager {
         wd.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         wd.get("http://localhost/addressbook/");
         groupHelper = new GroupHelper(wd);
+        contanctHelper = new ContactHelper(wd);
         navigationHelper = new NavigationHelper(wd);
         sessionHelper = new SessionHelper(wd);
         sessionHelper.login("admin", "secret");
-        contanctHelper = new ContactHelper(wd);
     }
 
 
@@ -47,5 +48,9 @@ public class ApplicationManager {
 
     public NavigationHelper getNavigationHelper() {
         return navigationHelper;
+    }
+
+    public ContactHelper getContanctHelper() {
+        return contanctHelper;
     }
 }
