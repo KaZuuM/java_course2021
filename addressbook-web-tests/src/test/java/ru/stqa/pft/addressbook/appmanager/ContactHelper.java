@@ -64,4 +64,12 @@ public class ContactHelper extends HelperBase{
     public void editFirstContact() {
         click(By.xpath("//table[@id='maintable']/tbody/tr[3]/td[8]/a/img"));
     }
+
+    public void pushDeleteButton() {
+        click(By.xpath("//input[@value='Delete']"));
+    }
+
+    public void confirmToDeleteContact() {
+
+    }
 }

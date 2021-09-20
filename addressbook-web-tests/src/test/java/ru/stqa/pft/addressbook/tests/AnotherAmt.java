@@ -23,12 +23,11 @@ public class AnotherAmt {
 
   @Test
   public void testAnotherAmt() throws Exception {
-    driver.get("http://localhost/addressbook/edit.php");
-    driver.findElement(By.name("bday")).click();
+    driver.get("http://localhost/addressbook/");
+    acceptNextAlert = true;
+    driver.findElement(By.id("6")).click();
+    driver.findElement(By.xpath("//input[@value='Delete']")).click();
 
-    driver.findElement(By.name("bmonth")).click();
-    new Select(driver.findElement(By.name("bmonth"))).selectByVisibleText("June");
-    driver.findElement(By.name("theform")).click();
   }
 
   @AfterClass(alwaysRun = true)

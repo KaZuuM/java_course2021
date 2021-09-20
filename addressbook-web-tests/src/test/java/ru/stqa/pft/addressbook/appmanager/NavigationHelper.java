@@ -17,4 +17,7 @@ public class NavigationHelper extends HelperBase {
         click(By.linkText("add new"));
     }
 
+    public void chooseCheckBoxOfContact() {
+        click(By.id("8"));
+    }
 }

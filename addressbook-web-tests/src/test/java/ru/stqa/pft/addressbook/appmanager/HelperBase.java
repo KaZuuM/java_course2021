@@ -23,6 +23,7 @@ public class HelperBase {
         wd.findElement(locator).sendKeys(text);
     }
 
+
     public boolean isAlertPresent() {
         try {
             wd.switchTo().alert();
@@ -34,5 +35,9 @@ public class HelperBase {
 
     protected Select findElement(By locator) {
         return new Select(wd.findElement(locator));
+    }
+
+    protected void closePopAp() {
+        wd.switchTo().alert().accept();
     }
 }
