@@ -70,6 +70,6 @@ public class ContactHelper extends HelperBase{
     }
 
     public void confirmToDeleteContact() {
-
+        wd.switchTo().alert().accept();
     }
 }

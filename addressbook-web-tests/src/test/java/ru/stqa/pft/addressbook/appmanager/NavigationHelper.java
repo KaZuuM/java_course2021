@@ -18,6 +18,6 @@ public class NavigationHelper extends HelperBase {
     }
 
     public void chooseCheckBoxOfContact() {
-        click(By.id("8"));
+        click(By.id("11"));
     }
 }
